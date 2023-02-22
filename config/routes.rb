@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  root 'static_pages#home'
-  get '/help', to: 'static_pages#help'
-  get '/about', to: 'static_pages#about'
-  get '/contact', to: 'static_pages#contact'
+  get "users/new"
+  root "static_pages#home"
+  get "/help", to: "static_pages#help"
+  get "/about", to: "static_pages#about"
+  get "/contact", to: "static_pages#contact"
+  get "/signup", to: "users#new"
 end
+
+# using the GET paths above (ie. /about) automagically gives us both
+# about_path - which would be `/about`
+# about_url - which would be `http://www.example.com/about`
