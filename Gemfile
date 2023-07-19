@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.3"
+ruby "3.1.2"
 
 gem "rails",           "7.0.4"
 gem "bcrypt",          "3.1.18"
@@ -38,3 +38,6 @@ end
 group :production do
   gem "pg", "1.3.5"
 end
+
+# Use Redis for Action Cable
+gem "redis", "~> 4.0"
