@@ -6,6 +6,22 @@ class UsersLogin < ActionDispatch::IntegrationTest
   end
 end
 
+class RememberingTest < UsersLogin
+  test "login with remembering" do
+    login_as(@user, remember_me: "1")
+    assert_equal cookies[:remember_token], assigns(:user).remember_token
+  end
+
+  test "login without remembering" do
+    # Log in to set the cookie
+    login_as(@user, remember_me: "1")
+    # Log in again and verify that the cookie is deleted
+    login_as(@user, remember_me: "0")
+    assert cookies[:remember_token].blank?
+  end
+
+end
+
 class InvalidPasswordTest < UsersLogin
   test "login path" do
     get login_path
