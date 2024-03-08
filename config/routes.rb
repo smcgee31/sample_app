@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post   "/login",   to: "sessions#create"
   delete "/logout",  to: "sessions#destroy"
   resources :users
+  resources :account_activations, only: [:edit]
 end
 
 # using the GET paths above (ie. /about) automagically gives us both

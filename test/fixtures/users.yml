@@ -5,21 +5,29 @@ steve: # <- this is the name of the fixture
   email: steve@example.com
   password_digest: <%= User.digest('password') %> # note that fixtures support embedded ruby which allows us to create a valid password digest for the test user
   admin: true # note that fixtures support boolean values
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 archer:
   name: Sterling archer
   email: duchess@example.gov
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 lana:
   name: Lana Kane
   email: hands@example.gov
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 malory:
   name: Malory Archer
   email: boss@example.gov
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 # note that fixtures support embedded ruby
 <% 30.times do |n| %>
@@ -27,4 +35,6 @@ user_<%= n %>:
   name: <%= "User #{n}" %>
   email: <%= "user-#{n}@example.com" %>
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>
